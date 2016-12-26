@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Love Calculator
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addSong()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<h2> Book List</h2>
+
+<ion-list>
+  <ion-item-sliding  *ngFor="let book of books | async">
+      <ion-item>
+        {{book.title}}
+        {{book.author}}
+        
+      </ion-item>
+
+      <ion-item-options side="left">
+          <button ion-button  color="danger"  (click)="deleteBook(book.$key)" icon-left>
+              <ion-icon name="trash">Delete</ion-icon>
+              
+          </button> 
+      </ion-item-options>
+
+      <ion-item-options side="right">
+          <button ion-button  color="secondary"  (click)="editBook(book)">
+              <ion-icon name="create">Edit</ion-icon>
+          </button> 
+      </ion-item-options>
+    
+  </ion-item-sliding>
+</ion-list>
+
+
+  <!--<ion-list>
+    <ion-item>
+      <ion-label floating> Name1</ion-label>
+      <ion-input type="text" [(ngModel)]="name1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating> Name2</ion-label>
+      <ion-input type="text" [(ngModel)]="name2"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-card text-center>
+    <ion-card-header>
+      {{name1 || '???'}}<ion-icon name="heart" color="danger"></ion-icon>{{name2 || '???'}}
+
+    </ion-card-header>
+
+    <ion-card-content class="score">
+      {{Score}}%
+    </ion-card-content>
+  
+  </ion-card>-->
+</ion-content>
